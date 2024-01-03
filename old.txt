@@ -1,0 +1,590 @@
+/* 
+                else if (jumpI > 33 && jumpI <= 38)
+                {
+                    marioy += 3;
+                }
+
+                else if (jumpI > 38 && jumpI < 66)
+                {
+                    marioy += 6;
+                }
+
+                */
+
+
+
+
+
+
+                //marioy = marioyOld;
+
+                    /* 
+                    if (isGoingRight == true)
+                    {
+                        marioContainer = mario1;
+                    }
+
+                    else
+                    {
+                        marioContainer = mario4;
+                    }
+                    */
+
+
+
+
+
+
+
+
+
+                    /* 
+            else if (isJumping && (!(keysPressed.contains(KeyEvent.VK_W) || keysPressed.contains(KeyEvent.VK_SPACE)) || isHeld == false))
+            {
+                isHeld = false;
+
+                if (isGoingRight == true)
+                {
+                    marioContainer = mario7;
+                }
+
+                else
+                {
+                    marioContainer = mario8;
+                }
+
+                if (marioy < marioyOld)
+                {
+                    marioy += 6;
+                }
+
+                else
+                {
+                    marioy = marioyOld;
+                    jumpI = 0;
+                    isJumping = false;
+
+                    if (isGoingRight == true)
+                    {
+                        marioContainer = mario1;
+                    }
+
+                    else
+                    {
+                        marioContainer = mario4;
+                    }
+                }
+            }
+            */
+
+
+
+
+
+
+
+
+
+
+            /*
+                Rectangle2D.Double marioRect = new Rectangle2D.Double(mariox + camerax, marioy + cameray, 30, 40);
+                Rectangle2D.Double closestRect = null;
+
+                for (int i = 0; i < groundRectArr.size(); i++)
+                {
+                    if (closestRect == null)
+                    {
+                        closestRect = groundRectArr.get(i);
+                    }
+
+                    else
+                    {
+                        if (Math.abs((mariox + camerax) - (int)groundRectArr.get(i).getX()) < Math.abs((mariox + camerax) - (int)closestRect.getX()))
+                        {
+                            closestRect = groundRectArr.get(i);
+                        }
+                    }
+                }
+                */
+
+
+
+
+
+
+
+
+
+
+
+                /*
+                Rectangle2D.Double marioRect = new Rectangle2D.Double(mariox + camerax, marioy + cameray, 30, 40);
+                Rectangle2D.Double closestRect = null;
+
+                for (int i = 0; i < groundRectArr.size(); i++)
+                {
+                    if (closestRect == null)
+                    {
+                        closestRect = groundRectArr.get(i);
+                    }
+
+                    else
+                    {
+                        if (Math.abs((mariox + camerax) - (int)groundRectArr.get(i).getX()) < Math.abs((mariox + camerax) - (int)closestRect.getX()))
+                        {
+                            closestRect = groundRectArr.get(i);
+                        }
+                    }
+                }
+                */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                public boolean canJumpUp()
+    {
+        Rectangle2D.Double marioRect = new Rectangle2D.Double(mariox + camerax, marioy + cameray - 6, 30, 12);
+
+        for (int i = 0; i < groundRectArr.size(); i++)
+        {
+            if (marioRect.intersects(groundRectArr.get(i)))
+            {
+                isJumping = false;
+                fallingFromJump = true;
+                jumpI = 0;
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+            if (keysPressed.contains(KeyEvent.VK_W) && isJumpPossible && isJumping == false && !fallingFromJump || keysPressed.contains(KeyEvent.VK_SPACE) && isJumpPossible && isJumping == false && !fallingFromJump)
+            {
+                if (isGoingRight)
+                {
+                    marioContainer = mario1;
+                }
+
+                else if (isGoingRight == false)
+                {
+                    marioContainer = mario4;
+                }
+
+                if (jumpWaitCounter == 10)
+                {
+                    jumpWaitCounter = 0;
+                    jumpWait = false;
+                }
+
+                else
+                {
+                    jumpWaitCounter++;
+                }
+            }
+
+
+
+
+
+
+
+            /*
+            for (int i = 0; i < groundRectArr.size(); i++)
+            {
+                if (marioRect.intersects(groundRectArr.get(i)) && (marioy <= (int)groundRectArr.get(i).getY() - 40))
+                {
+                    marioy = (int)groundRectArr.get(i).getY() - 40;
+                }
+            }
+            */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //(marioy <= (int)groundRectArr.get(i).getY() - 35))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void makeSure()
+    {
+        Rectangle2D.Double marioRect = new Rectangle2D.Double(mariox + camerax, marioy + cameray, 30, 40);
+        for (int i = 0; i < groundRectArr.size(); i++)
+        {
+            if (marioRect.intersects(groundRectArr.get(i)))
+            {
+                if ((Math.abs(marioy - (int)groundRectArr.get(i).getY())) < 35)
+                {
+                    marioy = (int)groundRectArr.get(i).getY() - 40;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    for (int i = 0; i < 23; i++)
+        {
+            int x = i * 128;
+            Brick b = new Brick(x, CANVAS_HEIGHT - 128);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            int x = i * 128;
+            Brick b = new Brick(3100 + x, CANVAS_HEIGHT - 128);
+        }
+
+        for (int i = 0; i < 19; i++)
+        {
+            int x = i * 128;
+            Brick b = new Brick(3768 + x, CANVAS_HEIGHT - 128);
+        }
+
+        for (int i = 0; i < 20; i++)
+        {
+            int x = i * 128;
+            Brick b = new Brick(6280 + x, CANVAS_HEIGHT - 128);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            int x = i * 80;
+            Platform p = new Platform(x + 800, CANVAS_HEIGHT - 288);
+        }
+
+        for (int i = 1; i < 5; i += 2)
+        {
+            int x = i * 40;
+            MysteryBlock m = new MysteryBlock(x + 800, CANVAS_HEIGHT - 288);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            int x = i * 350;
+            int h = i * 30;
+
+            if (i == 3)
+            {
+                Tube t = new Tube(1350 + x, CANVAS_HEIGHT - 208 - h + 30, 80 + h - 30);
+            }
+
+            else 
+            {
+                Tube t = new Tube(1350 + x, CANVAS_HEIGHT - 208 - h, 80 + h);
+            }
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 80;
+            Platform p = new Platform(3296 + x, CANVAS_HEIGHT - 288);
+        }
+
+        for (int i = 0; i < 7; i++)
+        {
+            int x = i * 40;
+            Platform p = new Platform(3416 + x, CANVAS_HEIGHT - 440);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 60;
+            Goomba g = new Goomba(3450 + x, CANVAS_HEIGHT - 470, 1);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            int x = i * 40;
+            Platform p = new Platform(3816 + x, CANVAS_HEIGHT - 440);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 40;
+            Platform p = new Platform(4096 + x, CANVAS_HEIGHT - 288);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            int x = i * 120;
+            MysteryBlock m = new MysteryBlock(4440 + x, CANVAS_HEIGHT - 288);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            int x = i * 40;
+            Platform p = new Platform(5020 + x, CANVAS_HEIGHT - 440);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 120;
+            Platform p = new Platform(5260 + x, CANVAS_HEIGHT - 440);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 40;
+            MysteryBlock m = new MysteryBlock(5300 + x, CANVAS_HEIGHT - 440);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 40;
+            Platform p = new Platform(5300 + x, CANVAS_HEIGHT - 288);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            int x = i * 40;
+
+            for (int j = 0; j < i + 1; j++)
+            {
+                Stair s = new Stair(5500 + x, CANVAS_HEIGHT - 168 - (j * 40));
+            }
+        }
+
+        for (int i = 4; i > 0; i--)
+        {
+            int x = Math.abs(i - 4) * 40;
+
+            for (int j = 0; j < i; j++)
+            {
+                Stair s = new Stair(5760 + x, CANVAS_HEIGHT - 168 - (j * 40));
+            }
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            int x = i * 40;
+
+            for (int j = 0; j < i + 1; j++)
+            {
+                Stair s = new Stair(6040 + x, CANVAS_HEIGHT - 168 - (j * 40));
+            }
+        }
+
+        for (int i = 4; i > 0; i--)
+        {
+            int x = Math.abs(i - 4) * 40;
+
+            for (int j = 0; j < i; j++)
+            {
+                Stair s = new Stair(6280 + x, CANVAS_HEIGHT - 168 - (j * 40));
+            }
+        }
+
+        for (int i = 0; i < 8; i++)
+        {
+            int x = i * 40;
+
+            for (int j = 0; j < i + 1; j++)
+            {
+                Stair s = new Stair(7410 + x, CANVAS_HEIGHT - 168 - (j * 40));
+            }
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 40;
+            Platform p = new Platform(6840 + x, CANVAS_HEIGHT - 288);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 60;
+            Goomba g = new Goomba(7100 + x, CANVAS_HEIGHT - 158, 1);
+        }
+        
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 60;
+            Goomba g = new Goomba(4200 + x, CANVAS_HEIGHT - 158, 1);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 60;
+            Goomba g = new Goomba(4700 + x, CANVAS_HEIGHT - 158, 1);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 60;
+            Goomba g = new Goomba(5050 + x, CANVAS_HEIGHT - 158, 1);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 60;
+            Goomba g = new Goomba(5200 + x, CANVAS_HEIGHT - 158, 1);
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            int x = i * 60;
+            Goomba g = new Goomba(7100 + x, CANVAS_HEIGHT - 158, 1);
+        }
+
+        MysteryBlock m = new MysteryBlock(2750, CANVAS_HEIGHT - 330);
+        MysteryBlock m2 = new MysteryBlock(3336, CANVAS_HEIGHT - 288);
+        MysteryBlock m3 = new MysteryBlock(3936, CANVAS_HEIGHT - 440);
+        MysteryBlock m4 = new MysteryBlock(4560, CANVAS_HEIGHT - 440);
+        MysteryBlock m5 = new MysteryBlock(6920, CANVAS_HEIGHT - 288);
+        Platform p = new Platform(3936, CANVAS_HEIGHT - 288);
+        Platform p2 = new Platform(4900, CANVAS_HEIGHT - 288);
+        Platform p3 = new Platform(6960, CANVAS_HEIGHT - 288);
+        Tube t = new Tube(6600, CANVAS_HEIGHT - 208, 80);
+        Tube t2 = new Tube(7300, CANVAS_HEIGHT - 208, 80);
+        Stair s = new Stair(8000, CANVAS_HEIGHT - 168);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        for (int i = 0; i < goombaArr.size(); i++)
+            {
+                goombaArr.get(i).dead = false;
+                goombaArr.get(i).index = 1;
+                goombaArr.get(i).refreshImage();
+            }
+
+            for (int i = 0; i < mysteryBlockArr.size(); i++)
+            {
+                try
+                {
+                    InputStream imgStream = MysteryBlock.class.getResourceAsStream("/img/mysteryblock.png");
+                    mysteryBlockArr.get(i).img = ImageIO.read(imgStream);
+                }
+
+                catch (IOException e2)
+                {
+                    System.out.println("Error thrown");
+                }
+
+                mysteryBlockUsableArr.set(i, true);
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
